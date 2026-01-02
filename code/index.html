@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Team | Organización</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0E0E0E;
+            color: #ffffff;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                linear-gradient(0deg, rgba(255, 0, 85, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 247, 255, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        body>* {
+            position: relative;
+            z-index: 1;
+        }
+
+        .mono {
+            font-family: 'Fira Code', monospace;
+        }
+
+        .glass-card {
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 0, 85, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 247, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .glass-card:hover::before {
+            left: 100%;
+        }
+
+        .glass-card:hover {
+            border-color: #00f7ff;
+            transform: translateY(-5px);
+            box-shadow:
+                0 0 20px rgba(255, 0, 85, 0.5),
+                0 0 40px rgba(0, 247, 255, 0.3),
+                0 10px 30px -15px rgba(255, 0, 85, 0.5);
+            animation: glitch 0.3s ease;
+        }
+
+        @keyframes glitch {
+
+            0%,
+            100% {
+                transform: translateY(-5px);
+            }
+
+            25% {
+                transform: translateY(-5px) translateX(-2px);
+            }
+
+            50% {
+                transform: translateY(-5px) translateX(2px);
+            }
+
+            75% {
+                transform: translateY(-5px) translateX(-1px);
+            }
+        }
+
+        .tech-badge {
+            background: rgba(255, 0, 85, 0.15);
+            color: #ff0055;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            border: 1px solid rgba(255, 0, 85, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .tech-badge:hover {
+            background: rgba(0, 247, 255, 0.2);
+            color: #00f7ff;
+            border-color: #00f7ff;
+            box-shadow: 0 0 10px rgba(0, 247, 255, 0.5);
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #ff0055, #00f7ff, #ff0055);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glitch-gradient 3s linear infinite;
+        }
+
+        @keyframes glitch-gradient {
+            0% {
+                background-position: 0% center;
+            }
+
+            100% {
+                background-position: 200% center;
+            }
+        }
+
+        .neon-text {
+            color: #00f7ff;
+            text-shadow:
+                0 0 10px rgba(0, 247, 255, 0.8),
+                0 0 20px rgba(0, 247, 255, 0.6),
+                0 0 30px rgba(0, 247, 255, 0.4);
+        }
+
+        .neon-red {
+            color: #ff0055;
+            text-shadow:
+                0 0 10px rgba(255, 0, 85, 0.8),
+                0 0 20px rgba(255, 0, 85, 0.6),
+                0 0 30px rgba(255, 0, 85, 0.4);
+        }
+
+        h1,
+        h2,
+        h3 {
+            animation: glitch-text 5s infinite;
+        }
+
+        @keyframes glitch-text {
+
+            0%,
+            90%,
+            100% {
+                transform: translate(0);
+            }
+
+            92% {
+                transform: translate(-2px, 2px);
+            }
+
+            94% {
+                transform: translate(2px, -2px);
+            }
+
+            96% {
+                transform: translate(-1px, 1px);
+            }
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <!-- Header / Hero Section -->
+    <header class="py-16 px-4 text-center">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="mono neon-text text-sm font-semibold mb-2 tracking-widest uppercase">/dev/team</h2>
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Forma parte del equipo de <span
+                    class="gradient-text">Desarrollo</span></h1>
+            <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                Transformamos ideas en soluciones digitales. <br>
+                Preparate para ser parte del Glitch.
+            </p>
+        </div>
+    </header>
+
+    <!-- Stats Section -->
+    <section class="max-w-6xl mx-auto px-4 mb-20">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="glass-card p-6 rounded-2xl text-center">
+                <div class="text-3xl font-bold gradient-text mono mb-1">100%</div>
+                <div class="text-gray-500 text-sm uppercase tracking-wide">Mexicanos</div>
+            </div>
+            <div class="glass-card p-6 rounded-2xl text-center">
+                <div class="text-3xl font-bold gradient-text mono mb-1">+100</div>
+                <div class="text-gray-500 text-sm uppercase tracking-wide">Bugs Resueltos</div>
+            </div>
+            <div class="glass-card p-6 rounded-2xl text-center">
+                <div class="text-3xl font-bold gradient-text mono mb-1">99.9%</div>
+                <div class="text-gray-500 text-sm uppercase tracking-wide">Seguros de lo que hacemos</div>
+            </div>
+            <div class="glass-card p-6 rounded-2xl text-center">
+                <div class="text-3xl font-bold gradient-text mono mb-1">24/7</div>
+                <div class="text-gray-500 text-sm uppercase tracking-wide">Disponibilidad</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Grid -->
+    <main class="max-w-7xl mx-auto px-4 pb-28">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- Team Member 1 -->
+            <div class="glass-card rounded-3xl overflow-hidden p-6">
+                <div class="flex items-center space-x-4 mb-6">
+                    <img src="pixel.png" alt="Team Member"
+                        class="w-16 h-16 rounded-2xl object-cover border-2 border-gray-800">
+                    <div>
+                        <h3 class="text-xl font-bold">Ángel Alemán (Owynn)</h3>
+                        <p class="neon-text text-sm mono">Systems Engineer</p>
+                    </div>
+                </div>
+                <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                    Especialista en desarrollo web y creador de grupo glitch. Apasionado por la tecnología y la
+                    innovación.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-6 cursor-default">
+                    <span class="tech-badge">Python</span>
+                    <span class="tech-badge">JavaScript</span>
+                    <span class="tech-badge">HTML/CSS</span>
+                    <span class="tech-badge">PHP</span>
+                    <span class="tech-badge">Java</span>
+                </div>
+                <div class="flex space-x-4 text-gray-600 border-t border-gray-800 pt-4">
+                    <a href="https://github.com/Owyni" class="hover:text-cyan-400 transition-colors"><i
+                            class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/owyni/" class="hover:text-cyan-400 transition-colors"><i
+                            class="fab fa-linkedin"></i></a>
+                    <a href="https://grupoglitch.space/" class="hover:text-cyan-400 transition-colors"><i
+                            class="fas fa-globe"></i></a>
+                </div>
+            </div>
+
+            <!-- Team Member 2 -->
+            <div class="glass-card rounded-3xl overflow-hidden p-6">
+                <div class="flex items-center space-x-4 mb-6">
+                    <img src="https://1000marcas.net/wp-content/uploads/2025/04/Signo-de-interrogacion.png"
+                        alt="Team Member" class="w-16 h-16 rounded-2xl object-cover border-2 border-cyan-400/50">
+                    <div>
+                        <h3 class="text-xl font-bold">Aquí estará tu nombre</h3>
+                        <p class="neon-red text-sm mono">Aquí estará tu cargo</p>
+                    </div>
+                </div>
+                <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                    Aquí estará tu descripción.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-6">
+                    <span class="tech-badge">Estarán</span>
+                    <span class="tech-badge">Aquí</span>
+                    <span class="tech-badge">Tus</span>
+                    <span class="tech-badge">Habilidades</span>
+                </div>
+                <div class="flex space-x-4 text-gray-600 border-t border-gray-800 pt-4">
+                    <a href="https://github.com/" class="hover:text-cyan-400 transition-colors"><i
+                            class="fab fa-github"></i></a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Stack Section -->
+    <section class="bg-black py-20 px-4 border-t border-red-900/30">
+        <div class="max-w-6xl mx-auto text-center">
+            <h2 class="text-2xl font-bold mb-12 uppercase tracking-widest text-gray-600">Nuestro Stack Tecnológico</h2>
+            <div
+                class="flex flex-wrap justify-center gap-8 md:gap-16 opacity-50 grayscale hover:grayscale-0 transition-all">
+                <i class="fab fa-python text-5xl hover:text-[#3776AB]"></i>
+                <i class="fab fa-git-alt text-5xl hover:text-[#F05032]"></i>
+                <i class="fab fa-html5 text-5xl hover:text-[#61DAFB]"></i>
+                <i class="fab fa-css3 text-5xl hover:text-[#339933]"></i>
+                <i class="fab fa-js text-5xl hover:text-[#FF9900]"></i>
+                <i class="fa-solid fa-database text-5xl hover:text-[#2496ED]"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join CTA -->
+    <section class="py-20 px-4">
+        <div class="max-w-4xl mx-auto glass-card rounded-3xl p-10 text-center relative overflow-hidden">
+            <div class="relative z-10">
+                <h2 class="text-3xl font-bold mb-4">¿Quieres construir el futuro con nosotros?</h2>
+                <p class="text-gray-400 mb-8">Siempre estamos buscando desarrolladores talentosos y curiosos.</p>
+                <a href="https://grupoglitch.space/#contact"
+                    class="inline-block bg-gradient-to-r from-red-600 to-blue-500 hover:from-red-500 hover:to-cyan-400 text-white font-bold py-3 px-8 rounded-xl transition-all shadow-lg shadow-red-500/20 hover:shadow-cyan-400/30">
+                    Contactanos
+                </a>
+            </div>
+            <!-- Decorative circle -->
+            <div class="absolute -right-20 -bottom-20 w-64 h-64 bg-red-600/10 rounded-full blur-3xl"></div>
+            <div class="absolute -left-20 -top-20 w-64 h-64 bg-cyan-400/10 rounded-full blur-3xl"></div>
+        </div>
+    </section>
+
+    <footer class="py-10 text-center text-gray-700 text-sm mono">
+        2026 • Dev Team • <a href="https://grupoglitch.space" class="neon-red hover:underline">grupoglitch.space</a>
+    </footer>
+
+</body>
+
+</html>
